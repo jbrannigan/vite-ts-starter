@@ -1,16 +1,17 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // ESM-safe: avoids __dirname and node:path
       '@': new URL('./src', import.meta.url).pathname,
     },
   },
-  build: {
-    target: 'es2020',
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: 'src/test/setup.ts',
+    css: true,
   },
 });
