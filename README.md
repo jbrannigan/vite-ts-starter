@@ -1,85 +1,58 @@
-# Vite + React + TypeScript Starter
+# Vite + React + TypeScript Starter (with Routing + React Query)
 
-🚀 A strict, modern starter with:
-- Node 20
-- Vite + React + TypeScript
-- ESLint + Prettier (integrated)
-- Path aliases (`@/`)
-- Vitest + Testing Library
+This branch extends the base **Vite + React + TypeScript** starter with:
 
-## Usage
-1. Click "Use this template" on GitHub → Create a new repo.
-2. Clone your new repo.
-3. Run:
+- **React Router** for client-side navigation
+- **React Query** for data fetching & caching
+- **Strict TypeScript** configuration
+- **ESLint + Prettier** with pre-commit hooks
+- **Path aliases (`@/`)** for cleaner imports
+
+## Requirements
+
+- Node **20+**
+
+## Quick Start
+
+1. **Create a new repository from this template**
+   - Click **Use this template** on [this repository](../../)
+   - In the “Repository template” dropdown, select **with-routing-query**.
+
+2. **Clone and install dependencies**
    ```bash
+   git clone https://github.com/YOUR-USERNAME/YOUR-NEW-APP.git
+   cd YOUR-NEW-APP
    npm install
    npm run dev
+   ```
 
+## Project Structure
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```
+src/
+├─ app/
+│  ├─ main.tsx        # Entry point: wraps Providers + Router
+│  ├─ router.tsx      # React Router routes (Home, About)
+│  └─ providers.tsx   # React Query provider setup
+├─ features/
+│  └─ examples/
+│     └─ Todos.tsx    # Example data fetching component
+├─ pages/
+│  ├─ Home.tsx
+│  └─ About.tsx
+├─ styles/
+│  └─ index.css
+└─ vite-env.d.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Key Libraries
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+- [React Router](https://reactrouter.com/) for client-side navigation
+- [TanStack React Query](https://tanstack.com/query/latest) for data fetching and caching
+- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and formatting
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## Next Steps
+
+- Add new pages under `src/pages`
+- Update or add routes in `src/app/router.tsx`
+- Use React Query hooks (`useQuery`, `useMutation`) for API integration
