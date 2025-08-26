@@ -1,4 +1,20 @@
-# React + TypeScript + Vite
+# Vite + React + TypeScript Starter
+
+🚀 A strict, modern starter with:
+- Node 20
+- Vite + React + TypeScript
+- ESLint + Prettier (integrated)
+- Path aliases (`@/`)
+- Vitest + Testing Library
+
+## Usage
+1. Click "Use this template" on GitHub → Create a new repo.
+2. Clone your new repo.
+3. Run:
+   ```bash
+   npm install
+   npm run dev
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
