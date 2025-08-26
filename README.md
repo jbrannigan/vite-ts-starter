@@ -1,85 +1,51 @@
-# Vite + React + TypeScript Starter
+# Vite + React + TypeScript Starter (Minimal)
 
-🚀 A strict, modern starter with:
-- Node 20
-- Vite + React + TypeScript
-- ESLint + Prettier (integrated)
-- Path aliases (`@/`)
-- Vitest + Testing Library
+This branch provides a **minimal Vite + React + TypeScript** setup with:
 
-## Usage
-1. Click "Use this template" on GitHub → Create a new repo.
-2. Clone your new repo.
-3. Run:
+- **Strict TypeScript** configuration
+- **ESLint + Prettier** with pre-commit hooks
+- **Path aliases (`@/`)** for cleaner imports
+
+## Requirements
+
+- Node **20+**
+
+## Quick Start
+
+1. **Create a new repository from this template**
+   - Click **Use this template** on [this repository](../../)
+   - Use the default **master** branch for a minimal setup.
+
+2. **Clone and install dependencies**
    ```bash
+   git clone https://github.com/YOUR-USERNAME/YOUR-NEW-APP.git
+   cd YOUR-NEW-APP
    npm install
    npm run dev
+   ```
 
+## Project Structure
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```
+src/
+├─ app/
+│  └─ main.tsx        # Entry point
+├─ assets/
+│  └─ react.svg       # Example asset
+├─ styles/
+│  └─ index.css       # Global styles
+└─ vite-env.d.ts      # Vite/TS type declarations
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Key Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+- [Vite](https://vitejs.dev/) for fast development and builds
+- [React](https://react.dev/) with modern JSX transform
+- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) pre-configured
+- [TypeScript](https://www.typescriptlang.org/) with strict settings
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## Next Steps
+
+- Start adding your own components under `src/`
+- Add pages, features, or libraries as needed
+- Switch to the `with-routing-query` branch if you need routing and data fetching out of the box
